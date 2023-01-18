@@ -26,6 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sample/admin").hasRole("ADMIN");
 
         http.formLogin();
+        http.csrf().disable();
+        http.logout();
     }
 
 /*    @Override
