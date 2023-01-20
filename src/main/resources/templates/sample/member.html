@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Member</h1>
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <h1>For Member........</h1>
+
+    <div sec:authorize="hasRole('USER')">Has ROLE = USER</div>
+    <div sec:authorize="hasRole('MANAGER')">Has ROLE = MANAGER</div>
+    <div sec:authorize="hasRole('ADMIN')">Has ROLE = ADMIN</div>
+
+    <div sec:authorize="isAuthenticated()">
+        Only Authenticated user can see this text
+    </div>
+
+    Authenticated username:
+    <div sec:authentication="name"></div>
+    Authenticated user roles:
+    <div sec:authentication="principal.authorities"></div>
+
 </html>
