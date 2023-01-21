@@ -22,6 +22,8 @@ spring:
       max-file-size: 10MB
   security:
     debug: true
+  profiles:
+    include: oauth
 
   jpa:
     properties:
@@ -36,5 +38,6 @@ spring:
 logging:
   level:
     "[org.springframework.security]": DEBUG
+
 
 
