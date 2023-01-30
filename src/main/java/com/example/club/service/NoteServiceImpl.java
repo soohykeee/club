@@ -49,7 +49,7 @@ public class NoteServiceImpl implements NoteService {
             Note note = result.get();
 
             note.changeTitle(noteDTO.getTitle());
-            note.changeContent(note.getContent());
+            note.changeContent(noteDTO.getContent());
 
             noteRepository.save(note);
         }
