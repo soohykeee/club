@@ -2,6 +2,7 @@ package com.example.club.config;
 
 import com.example.club.security.filter.ApiCheckFilter;
 import com.example.club.security.filter.ApiLoginFilter;
+import com.example.club.security.handler.ApiLoginFailHandler;
 import com.example.club.security.handler.ClubLoginSuccessHandler;
 import com.example.club.security.service.ClubUserDetailsService;
 import lombok.extern.log4j.Log4j2;
@@ -42,6 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public ApiLoginFilter apiLoginFilter() throws Exception {
         ApiLoginFilter apiLoginFilter = new ApiLoginFilter("/api/login");
         apiLoginFilter.setAuthenticationManager(authenticationManager());
+
+        apiLoginFilter.setAuthenticationFailureHandler(new ApiLoginFailHandler());
 
         return apiLoginFilter;
     }
